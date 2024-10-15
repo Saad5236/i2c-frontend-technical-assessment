@@ -1,0 +1,77 @@
+@import './mixins';
+@import "./custom-bootstrap.scss";
+
+@font-face {
+    font-family: 'Inter-normal';
+    src: url('./fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
+    // font-weight: 100 900;
+    /* Declare a range from 100 to 900 */
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+body {
+    font-family: 'Inter-normal', sans-serif;
+}
+
+// _________HOME__________
+
+// Navbar
+
+.orange-glow-btn {
+    padding: 10px 24px !important;
+    box-shadow: 0 10px 40px 0 #F89D21B2;
+}
+
+// Hero
+
+.home-hero {
+    @include gridContainer(30px, 1fr 1fr);
+}
+
+.text-sky-blue {
+    color: #46B0E6;
+}
+
+.home-hero .skewed-underline {
+    left: 0;
+    bottom: -5px;
+}
+
+.home-hero .blue-text::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: url("../images/bg-light-blue-gradient.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    width: 150px;
+    width: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+}
+
+.hero-profile-card {
+    box-shadow: 0 24px 24px 0 #00000014;
+}
+
+.hero-profile-card img {
+    min-width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.fs-14 {
+    font-size: 14px
+}
+
+@media (width < 768px) {
+    .home-hero {
+        @include gridContainer(30px, 1fr);
+    }
+}
