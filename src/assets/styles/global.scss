@@ -1,17 +1,18 @@
-@import './mixins';
+@import "./mixins";
 @import "./custom-bootstrap.scss";
 
 @font-face {
-    font-family: 'Inter-normal';
-    src: url('./fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
-    // font-weight: 100 900;
-    /* Declare a range from 100 to 900 */
-    font-style: normal;
-    font-optical-sizing: auto;
+  font-family: "Inter-normal";
+  src: url("./fonts/Inter-VariableFont_opsz,wght.ttf") format("ttf");
+  // font-weight: 100 900;
+  /* Declare a range from 100 to 900 */
+  font-style: normal;
+  font-optical-sizing: auto;
 }
 
 body {
-    font-family: 'Inter-normal', sans-serif;
+  font-family: "Inter-normal", sans-serif;
+  min-height: 100vh;
 }
 
 // _________HOME__________
@@ -19,59 +20,162 @@ body {
 // Navbar
 
 .orange-glow-btn {
-    padding: 10px 24px !important;
-    box-shadow: 0 10px 40px 0 #F89D21B2;
+  padding: 10px 24px !important;
+  box-shadow: 0 10px 40px 0 #f89d21b2;
 }
 
 // Hero
 
-.home-hero {
-    @include gridContainer(30px, 1fr 1fr);
+.home-hero-container {
+  @include customBgImg(
+    "../../assets/images/hero-bottom-yellow-gradient.png",
+    no-repeat,
+    290px auto,
+    bottom -60px left,
+    rgba(0, 0, 0, 0)
+  );
 }
 
-.text-sky-blue {
-    color: #46B0E6;
+.home-hero {
+  @include gridContainer(30px, 1fr 1fr);
+  @include customBgImg(
+    "../../assets/images/hero-bg-center.png",
+    no-repeat,
+    700px auto,
+    top -100px right 43%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.hero-highlight-blue-word span {
+  color: #46b0e6;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-highlight-blue-word::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 320%;
+  height: 420%;
+  opacity: 0.7;
+  background: radial-gradient(circle, #b9ceea 3%, transparent 50%);
+  //   background-color: green;
+  z-index: 0;
+}
+
+.home-hero h1 {
+  position: relative;
 }
 
 .home-hero .skewed-underline {
-    left: 0;
-    bottom: -5px;
+  left: 0;
+  bottom: -5px;
 }
 
-.home-hero .blue-text::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background-image: url("../images/bg-light-blue-gradient.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+// .home-hero .blue-text::before {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   background-image: url("../images/bg-light-blue-gradient.png");
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: 100% 100%;
 
-    width: 150px;
-    width: 150px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+//   width: 150px;
+//   width: 150px;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
 
-    z-index: -1;
-}
+//   z-index: -1;
+// }
 
 .hero-profile-card {
-    box-shadow: 0 24px 24px 0 #00000014;
+  box-shadow: 0 24px 24px 0 #00000014;
 }
 
+.hero-profile-card:last-child {
+  height: 70px;
+  box-shadow: none !important;
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+// .hero-profile-card:last-child::after {
+//   content: "";
+//   display: block;
+//   //   border: 1px solid;
+//   position: absolute;
+//   top: 35px;
+//   left: -10px;
+//   right: -20px;
+//   height: 120%;
+//   //   background: linear-gradient(
+//   //     to bottom,
+//   //     rgba(255, 255, 255, 0) 0%,
+//   //     rgba(255, 255, 255, 1) 30%
+//   //   );
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(255, 255, 255, 0) 0%,
+//     #ebf0ff 50%
+//   );
+//   z-index: 3;
+//   pointer-events: none;
+// }
+
 .hero-profile-card img {
-    min-width: 60px;
-    height: 60px;
-    object-fit: cover;
+  min-width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
 
 .fs-14 {
-    font-size: 14px
+  font-size: 14px;
+}
+
+// Features
+
+.features-container {
+  background-image: url("../images/features-bg-yellow-gradient.png"),
+    url("../images/features-bg-blue-gradient.png");
+  background-position: top -35px left -20px, right 10px top 10px;
+  background-repeat: no-repeat;
+  background-size: 450px 120%, 300px;
+}
+
+.features {
+  padding: 32px 40px;
+  box-shadow: 0 34px 44px -20px #b9ceea40;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+// Trusted by
+
+.trusted-by h2 img {
+  width: 112%;
+  right: 0;
+  left: -14px;
+  bottom: -7px;
+}
+
+.trusted-by p {
+  max-width: 390px;
 }
 
 @media (width < 768px) {
-    .home-hero {
-        @include gridContainer(30px, 1fr);
-    }
+  .home-hero {
+    @include gridContainer(30px, 1fr);
+  }
+
+  .features {
+    padding: 25px 15px;
+  }
 }

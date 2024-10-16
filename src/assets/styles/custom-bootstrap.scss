@@ -3,24 +3,31 @@
 @import "bootstrap/scss/variables";
 
 // Override Bootstrap's variables
-$primary: #F89D21; // Set primary color to green
+$primary: #f89d21; // Set primary color to green
 $dark: #515151;
-$pinkish-green: #8BC34A; // Custom color
-$lightest-grey: #EBF0FF;
+$pinkish-green: #8bc34a; // Custom color
+$lightest-grey: #ebf0ff;
 
 // Map of theme colors (including custom colors)
 $theme-colors: (
-    "primary": $primary,
-    "secondary": $secondary,
-    "success": $success,
-    "danger": $danger,
-    "warning": $warning,
-    "info": $info,
-    "light": $light,
-    "dark": $dark,
-    "pinkish-green": $pinkish-green,
-    // Add custom color to Bootstrap classes
-    "lightest-grey": $lightest-grey,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning,
+  "info": $info,
+  "light": $light,
+  "dark": $dark,
+  "pinkish-green": $pinkish-green,
+  // Add custom color to Bootstrap classes
+  "lightest-grey": $lightest-grey,
+);
+
+$spacers: map-merge(
+  $spacers,
+  (
+    6: 5rem,
+  )
 );
 
 // Import the rest of Bootstrap to apply these changes
