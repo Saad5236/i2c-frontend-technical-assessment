@@ -1,4 +1,4 @@
-import React from "react";
+import React, { act, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -13,8 +13,89 @@ import BarGraphIcon from "../../assets/icons/bargraph-colorful.svg";
 import TrophyIcon from "../../assets/icons/trophy-yellow.svg";
 import RegistrationMainImg from "../../assets/images/form-aside-main-img.png";
 import OrangeGlowBtn from "../../components/OrangeGlowBtn";
+import ChevronRightBlue from "../../assets/icons/chevron-right-blue.svg";
+import ChevronLeftBlue from "../../assets/icons/chevron-left-blue.svg";
+import MicrosoftLogo from "../../assets/images/microsoft-logo.svg";
+import CocacolaLogo from "../../assets/images/coca-cola-logo.svg";
+import TwitterLogo from "../../assets/images/twitter-logo.svg";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+function CarouselNavBtn({ imgSrc }) {
+  return (
+    <button className="bg-transparent border-0 p-0">
+      <img width={20} src={imgSrc} alt="next-btn-carousel" />
+    </button>
+  );
+}
 
 function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  var settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    beforeChange: (current, next) => setActiveSlide(next),
+    nextArrow: (
+      <button className="bg-transparent border-0 p-0">
+        <img width={22} src={ChevronRightBlue} alt="next-btn-carousel" />
+      </button>
+    ),
+    prevArrow: (
+      <button className="bg-transparent border-0 p-0">
+        <img width={22} src={ChevronLeftBlue} alt="prev-btn-carousel" />
+      </button>
+    ),
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
+  const carouselData = [
+    {
+      imgSrc: MicrosoftLogo,
+      widthValue: 160,
+    },
+    {
+      imgSrc: TwitterLogo,
+      widthValue: 70,
+    },
+    {
+      imgSrc: CocacolaLogo,
+      widthValue: 150,
+    },
+  ];
+
+  const getActiveSlideClass = (index) => {
+    // const visibleSlides = settings.slidesToShow === 3 ? 3 : 1;
+    const visibleSlides = window.innerWidth < 768 ? 1 : 3;
+
+    console.log(activeSlide, index, visibleSlides);
+
+    if (visibleSlides === 3) {
+      const middleSlideIndex = (activeSlide + 1) % 3; // Correct middle slide logic
+      return middleSlideIndex === index ? "active-slide" : "";
+    } else {
+      return activeSlide === index ? "active-slide" : "";
+    }
+  };
+
   return (
     <div className="bg-lightest-grey">
       <Header />
@@ -129,7 +210,7 @@ function Home() {
         </section>
 
         <section>
-          <div className="trusted-by">
+          <div className="trusted-by container">
             <h2 className="text-black mb-4 fw-800 text-center">
               <span className="position-relative">
                 Trusted by
@@ -145,8 +226,34 @@ function Home() {
               tristique senectus dui pharetra sit.
             </p>
 
-              {/* SLIDER */}
-            <div></div>
+            {/* SLIDER */}
+            <div className="brands-carousel">
+              <Slider {...settings}>
+                {/* <div className="carousel-slide border d-flex justify-content-center">
+                  <img width={160} src={MicrosoftLogo} alt="microsoft-logo" />
+                </div>
+                <div className="carousel-slide border d-flex justify-content-center">
+                  <img width={70} src={TwitterLogo} alt="microsoft-logo" />
+                </div>
+                <div className="carousel-slide border d-flex justify-content-center">
+                  <img width={150} src={CocacolaLogo} alt="microsoft-logo" />
+                </div> */}
+                {carouselData.map((carouselItem, index) => (
+                  <div
+                    key={index}
+                    className={`carousel-slide border d-flex justify-content-center ${getActiveSlideClass(
+                      index
+                    )}`}
+                  >
+                    <img
+                      width={carouselItem.widthValue}
+                      src={carouselItem.imgSrc}
+                      alt="microsoft-logo"
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </section>
 
