@@ -2,6 +2,8 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
+$enable-grid-classes: false;
+$enable-cssgrid: true;
 // Override Bootstrap's variables
 $primary: #f89d21; // Set primary color to green
 $dark: #515151;
@@ -27,6 +29,7 @@ $spacers: map-merge(
   $spacers,
   (
     6: 5rem,
+    7: 6.5rem,
   )
 );
 
