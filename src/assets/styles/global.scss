@@ -143,9 +143,17 @@ body {
 }
 
 .carousel-slide {
-  min-height: 150px !important;
+  min-height: 120px !important;
+  
+  & svg,
+    & svg path{
+  fill: #f89d2199;}
   &.active-slide {
-    background-color: green;
+    // background-color: green;
+    & svg,
+    & svg path {
+      fill: #f89d21;
+    }
   }
 }
 

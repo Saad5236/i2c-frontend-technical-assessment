@@ -1,38 +1,63 @@
-import React, { act, useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import React, { act, useState } from "react"
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
-import SkewedUnderline from "../../assets/images/skewed-underline-orange.png";
-import SkewedUnderline2 from "../../assets/images/skewed-underline-orange-2.png";
-import HeroImg from "../../assets/images/hero-main-img.png";
-import HeroCardImg1 from "../../assets/images/hero-card-profile-img-1.png";
-import HeroCardImg2 from "../../assets/images/hero-card-profile-img-2.png";
-import HeroCardImg3 from "../../assets/images/hero-card-profile-img-3.png";
-import LockIcon from "../../assets/icons/padlock-yellow.svg";
-import BarGraphIcon from "../../assets/icons/bargraph-colorful.svg";
-import TrophyIcon from "../../assets/icons/trophy-yellow.svg";
-import RegistrationMainImg from "../../assets/images/form-aside-main-img.png";
-import OrangeGlowBtn from "../../components/OrangeGlowBtn";
-import ChevronRightBlue from "../../assets/icons/chevron-right-blue.svg";
-import ChevronLeftBlue from "../../assets/icons/chevron-left-blue.svg";
-import MicrosoftLogo from "../../assets/images/microsoft-logo.svg";
-import CocacolaLogo from "../../assets/images/coca-cola-logo.svg";
-import TwitterLogo from "../../assets/images/twitter-logo.svg";
+import SkewedUnderline from "../../assets/images/skewed-underline-orange.png"
+import SkewedUnderline2 from "../../assets/images/skewed-underline-orange-2.png"
+import HeroImg from "../../assets/images/hero-main-img.png"
+import HeroCardImg1 from "../../assets/images/hero-card-profile-img-1.png"
+import HeroCardImg2 from "../../assets/images/hero-card-profile-img-2.png"
+import HeroCardImg3 from "../../assets/images/hero-card-profile-img-3.png"
+import LockIcon from "../../assets/icons/padlock-yellow.svg"
+import BarGraphIcon from "../../assets/icons/bargraph-colorful.svg"
+import TrophyIcon from "../../assets/icons/trophy-yellow.svg"
+import RegistrationMainImg from "../../assets/images/form-aside-main-img.png"
+import OrangeGlowBtn from "../../components/OrangeGlowBtn"
+import ChevronRightBlue from "../../assets/icons/chevron-right-blue.svg"
+import ChevronLeftBlue from "../../assets/icons/chevron-left-blue.svg"
+import MicrosoftLogo from "../../assets/images/microsoft-logo.svg?react"
+import CocacolaLogo from "../../assets/images/coca-cola-logo.svg?react"
+import TwitterLogo from "../../assets/images/twitter-logo.svg?react"
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
-function CarouselNavBtn({ imgSrc }) {
+function CarouselNavBtn({ className, style, onClick, imgSrc }) {
   return (
-    <button className="bg-transparent border-0 p-0">
+    <button
+      className={`bg-transparent border-0 p-0 ${className}`}
+      onClick={onClick}
+      style={style}
+    >
       <img width={20} src={imgSrc} alt="next-btn-carousel" />
     </button>
-  );
+  )
 }
 
+// const NextArrow = ({ className, style, onClick }) => (
+//   <button
+//     className={`bg-transparent border-0 p-0 ${className}`}
+//     onClick={onClick}
+//     style={style}
+//   >
+//     <img width={22} src={ChevronRightBlue} alt="next-btn-carousel" />
+//   </button>
+// )
+
+// // Custom Previous Arrow
+// const PrevArrow = ({ className, style, onClick }) => (
+//   <button
+//     className={`bg-transparent border-0 p-0 ${className}`}
+//     onClick={onClick}
+//     style={style}
+//   >
+//     <img width={22} src={ChevronLeftBlue} alt="prev-btn-carousel" />
+//   </button>
+// )
+
 function Home() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0)
 
   var settings = {
     infinite: true,
@@ -41,16 +66,22 @@ function Home() {
     slidesToScroll: 1,
     arrows: true,
     beforeChange: (current, next) => setActiveSlide(next),
-    nextArrow: (
-      <button className="bg-transparent border-0 p-0">
-        <img width={22} src={ChevronRightBlue} alt="next-btn-carousel" />
-      </button>
-    ),
-    prevArrow: (
-      <button className="bg-transparent border-0 p-0">
-        <img width={22} src={ChevronLeftBlue} alt="prev-btn-carousel" />
-      </button>
-    ),
+    // nextArrow: (
+    //   <button className="bg-transparent border-0 p-0">
+    //     <img width={22} src={ChevronRightBlue} alt="next-btn-carousel" />
+    //   </button>
+    // ),
+    // prevArrow: (
+    //   <button className="bg-transparent border-0 p-0">
+    //     <img width={22} src={ChevronLeftBlue} alt="prev-btn-carousel" />
+    //   </button>
+    // ),
+
+    // nextArrow: <NextArrow />
+    // prevArrow: <PrevArrow />
+
+    nextArrow: <CarouselNavBtn imgSrc={ChevronRightBlue} />,
+    prevArrow: <CarouselNavBtn imgSrc={ChevronLeftBlue} />,
     responsive: [
       {
         breakpoint: 992,
@@ -65,36 +96,39 @@ function Home() {
         },
       },
     ],
-  };
+  }
 
   const carouselData = [
     {
-      imgSrc: MicrosoftLogo,
-      widthValue: 160,
+      imgSrc: <MicrosoftLogo />,
+      // imgSrc: MicrosoftLogo,
+      widthValue: 140,
     },
     {
-      imgSrc: TwitterLogo,
+      imgSrc: <TwitterLogo />,
+      // imgSrc: TwitterLogo,
       widthValue: 70,
     },
     {
-      imgSrc: CocacolaLogo,
-      widthValue: 150,
+      imgSrc: <CocacolaLogo />,
+      // imgSrc: CocacolaLogo,
+      widthValue: 140,
     },
-  ];
+  ]
 
   const getActiveSlideClass = (index) => {
     // const visibleSlides = settings.slidesToShow === 3 ? 3 : 1;
-    const visibleSlides = window.innerWidth < 768 ? 1 : 3;
+    const visibleSlides = window.innerWidth < 768 ? 1 : 3
 
-    console.log(activeSlide, index, visibleSlides);
+    console.log(activeSlide, index, visibleSlides)
 
     if (visibleSlides === 3) {
-      const middleSlideIndex = (activeSlide + 1) % 3; // Correct middle slide logic
-      return middleSlideIndex === index ? "active-slide" : "";
+      const middleSlideIndex = (activeSlide + 1) % 3 // Correct middle slide logic
+      return middleSlideIndex === index ? "active-slide" : ""
     } else {
-      return activeSlide === index ? "active-slide" : "";
+      return activeSlide === index ? "active-slide" : ""
     }
-  };
+  }
 
   return (
     <div className="bg-lightest-grey">
@@ -241,15 +275,17 @@ function Home() {
                 {carouselData.map((carouselItem, index) => (
                   <div
                     key={index}
-                    className={`carousel-slide border d-flex justify-content-center ${getActiveSlideClass(
+                    className={`carousel-slide d-flex justify-content-center align-items-center ${getActiveSlideClass(
                       index
                     )}`}
                   >
-                    <img
+                    {/* <img
                       width={carouselItem.widthValue}
                       src={carouselItem.imgSrc}
                       alt="microsoft-logo"
-                    />
+                    /> */}
+                    {carouselItem.imgSrc}
+                    {/* <MicrosoftLogo /> */}
                   </div>
                 ))}
               </Slider>
@@ -339,7 +375,7 @@ function Home() {
 
       <Footer />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
