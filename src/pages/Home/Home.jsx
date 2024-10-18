@@ -100,17 +100,17 @@ function Home() {
 
   const carouselData = [
     {
-      imgSrc: <MicrosoftLogo />,
+      imgSrc: <MicrosoftLogo style={{ width: 160 }} />,
       // imgSrc: MicrosoftLogo,
       widthValue: 140,
     },
     {
-      imgSrc: <TwitterLogo />,
+      imgSrc: <TwitterLogo style={{ width: 90 }} />,
       // imgSrc: TwitterLogo,
       widthValue: 70,
     },
     {
-      imgSrc: <CocacolaLogo />,
+      imgSrc: <CocacolaLogo style={{ width: 160 }} />,
       // imgSrc: CocacolaLogo,
       widthValue: 140,
     },

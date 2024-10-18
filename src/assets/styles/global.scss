@@ -132,7 +132,7 @@ body {
 }
 
 .brands-carousel {
-  max-width: 700px;
+  max-width: 650px;
   width: 80%;
   margin-inline: auto;
 }
@@ -144,10 +144,11 @@ body {
 
 .carousel-slide {
   min-height: 120px !important;
-  
+
   & svg,
-    & svg path{
-  fill: #f89d2199;}
+  & svg path {
+    fill: #f89d2199;
+  }
   &.active-slide {
     // background-color: green;
     & svg,
