@@ -1,4 +1,3 @@
-// Import Bootstrap's functions and variables
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
@@ -8,12 +7,12 @@ $enable-cssgrid: true;
 // $primary: #f89d21;
 $primary: #ad6500;
 $dark: #515151;
-$pinkish-green: #8bc34a; // Custom color
+$pinkish-green: #8bc34a;
 $lightest-grey: #ebf0ff;
 $green: #057d21;
 $sky-blue: #46b0e6;
 
-// Map of theme colors (including custom colors)
+
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
@@ -24,7 +23,6 @@ $theme-colors: (
   "light": $light,
   "dark": $dark,
   "pinkish-green": $pinkish-green,
-  // Add custom color to Bootstrap classes
   "lightest-grey": $lightest-grey,
   "green": $green,
   "sky-blue": $sky-blue,
@@ -38,5 +36,4 @@ $spacers: map-merge(
   )
 );
 
-// Import the rest of Bootstrap to apply these changes
 @import "bootstrap/scss/bootstrap";

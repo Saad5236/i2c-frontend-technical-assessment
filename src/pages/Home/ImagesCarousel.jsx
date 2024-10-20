@@ -13,7 +13,7 @@ function ImagesCarousel() {
           img: <MicrosoftLogo style={{ width: 220 }} />,
         },
         {
-          img: <TwitterLogo style={{ width: 100 }} />,
+          img: <TwitterLogo style={{ width: 85 }} />,
         },
         {
           img: <CocacolaLogo style={{ width: 220 }} />,

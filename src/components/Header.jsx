@@ -3,14 +3,12 @@ import OrangeGlowBtn from "./OrangeGlowBtn";
 import CompanyLogo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
-
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false); // Track the toggle state
-  const [hasShadow, setHasShadow] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [hasShadow, setHasShadow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if scrolled down
       if (window.scrollY > 0) {
         setHasShadow(true);
       } else {
@@ -18,25 +16,32 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll); // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev); // Toggle the menu open state
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <header className={`position-sticky top-0 start-0 bg-lightest-grey pb-3 pt-md-5 pt-4 ${hasShadow ? 'shadow-lg' : ''}`}>
+    <header
+      className={`position-sticky top-0 start-0 bg-lightest-grey pb-3 pt-md-5 pt-4 ${
+        hasShadow ? "shadow-lg" : ""
+      }`}
+    >
       <div className="container d-flex justify-content-between align-items-center">
-      <Link className="navbar-brand" to="#">
-             <img width={50} src={CompanyLogo} alt="logo" />
-           </Link>
+        <Link className="navbar-brand" to="#">
+          <img width={50} src={CompanyLogo} alt="logo" />
+        </Link>
 
-        <button onClick={toggleMenu} className="hamburger-menu-btn d-md-none ms-auto bg-transparent p-0 border-0">
+        <button
+          onClick={toggleMenu}
+          className="hamburger-menu-btn d-md-none ms-auto bg-transparent p-0 border-0"
+        >
           ☰
         </button>
 

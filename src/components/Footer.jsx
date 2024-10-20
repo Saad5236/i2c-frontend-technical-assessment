@@ -51,7 +51,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="copyright-text text-end text-dark">
+        <div className="copyright-text text-md-end text-center text-dark">
           Copyright © 2024 i2c inc. All rights reserved.
         </div>
       </div>

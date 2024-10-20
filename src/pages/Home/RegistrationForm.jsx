@@ -26,22 +26,28 @@ function RegistrationForm() {
       newErrors.username = "Name field is required.";
     } else if (!/^[a-zA-Z]/.test(formData.username)) {
       newErrors.username = "Name must start with a letter.";
-    } else if (formData.username.length < 4) {
-      newErrors.username = "Name must be more than 4 characters.";
+    } else if (formData.username.length < 3) {
+      newErrors.username = "Name must be more than 3 characters.";
     }
 
-    if (formData.companyName.trim() && formData.companyName.length < 4) {
-      newErrors.companyName =
-        "Company name must be at least 2 characters long.";
-    } else if (!/^[a-zA-Z]/.test(formData.companyName)) {
-      newErrors.companyName = "Company Name must start with a letter.";
+    // company name is optional, but if it's entered then following two validations rules will be applied
+    if (formData.companyName.trim()) {
+      if (!/^[a-zA-Z]/.test(formData.companyName)) {
+        newErrors.companyName = "Company Name must start with a letter.";
+      } else if (formData.companyName.length < 4) {
+        newErrors.companyName =
+          "Company name must be at least 4 characters long.";
+      }
     }
 
     if (!formData.email.trim()) {
       newErrors.email = "Email field is required.";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (
+      !/^[a-zA-Z][a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9-.]+\.[a-zA-Z]{2,}$/.test(formData.email)
+    ) {
       newErrors.email = "Invalid email address format.";
     }
+    
 
     return newErrors;
   };

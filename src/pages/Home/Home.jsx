@@ -1,13 +1,10 @@
-import React, { act, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import HomeLayout from "../../layouts/HomeLayout.jsx";
 import { RegistrationContext } from "../../contexts/RegistrationContext.jsx";
 
 import SkewedUnderline from "../../assets/images/skewed-underline-orange.png";
 import SkewedUnderline2 from "../../assets/images/skewed-underline-orange-2.png";
 import HeroImg from "../../assets/images/hero-main-img.png";
-import HeroCardImg1 from "../../assets/images/hero-card-profile-img-1.png";
-import HeroCardImg2 from "../../assets/images/hero-card-profile-img-2.png";
-import HeroCardImg3 from "../../assets/images/hero-card-profile-img-3.png";
 import LockIcon from "../../assets/icons/padlock-yellow.svg";
 import BarGraphIcon from "../../assets/icons/bargraph-colorful.svg";
 import TrophyIcon from "../../assets/icons/trophy-yellow.svg";
@@ -16,16 +13,8 @@ import TrustedByGradientBg from "../../assets/images/trusted-by-gradient-bg.png"
 import RegistrationBgBlueGradient from "../../assets/images/registration-form-bg-blue-gradient.png";
 import FeaturesOrangeGradientBg from "../../assets/images/features-bg-yellow-gradient.png";
 import FeaturesBlueGradientBg from "../../assets/images/features-bg-blue-gradient.png";
-import OrangeGlowBtn from "../../components/OrangeGlowBtn";
-import ChevronRightBlue from "../../assets/icons/chevron-right-blue.svg";
-import ChevronLeftBlue from "../../assets/icons/chevron-left-blue.svg";
-import MicrosoftLogo from "../../assets/images/microsoft-logo.svg?react";
-import CocacolaLogo from "../../assets/images/coca-cola-logo.svg?react";
-import TwitterLogo from "../../assets/images/twitter-logo.svg?react";
 
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import OrangeGlowBtn from "../../components/OrangeGlowBtn";
 import RegistrationForm from "./RegistrationForm";
 import ImagesCarousel from "./ImagesCarousel.jsx";
 import HeroVerticalSlider from "./HeroVerticalSlider.jsx";
