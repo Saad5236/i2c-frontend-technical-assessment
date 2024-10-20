@@ -11,6 +11,7 @@ $dark: #515151;
 $pinkish-green: #8bc34a; // Custom color
 $lightest-grey: #ebf0ff;
 $green: #057d21;
+$sky-blue: #46b0e6;
 
 // Map of theme colors (including custom colors)
 $theme-colors: (
@@ -26,6 +27,7 @@ $theme-colors: (
   // Add custom color to Bootstrap classes
   "lightest-grey": $lightest-grey,
   "green": $green,
+  "sky-blue": $sky-blue,
 );
 
 $spacers: map-merge(

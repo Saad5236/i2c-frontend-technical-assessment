@@ -43,7 +43,7 @@ function Home() {
                 <span className="position-relative z-1">Lorem ipsum </span>
                 <span className="position-relative">
                   <span className="hero-highlight-blue-word position-relative">
-                    <span className="position-relative z-2">dolor</span>
+                    <span className="position-relative z-2 text-sky-blue">dolor</span>
                     <img
                       className="position-absolute z-2 w-100 skewed-underline"
                       src={SkewedUnderline}
