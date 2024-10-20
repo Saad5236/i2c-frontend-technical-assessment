@@ -4,11 +4,13 @@
 
 $enable-grid-classes: false;
 $enable-cssgrid: true;
-// Override Bootstrap's variables
-$primary: #f89d21; // Set primary color to green
+
+// $primary: #f89d21;
+$primary: #ad6500;
 $dark: #515151;
 $pinkish-green: #8bc34a; // Custom color
 $lightest-grey: #ebf0ff;
+$green: #057d21;
 
 // Map of theme colors (including custom colors)
 $theme-colors: (
@@ -23,6 +25,7 @@ $theme-colors: (
   "pinkish-green": $pinkish-green,
   // Add custom color to Bootstrap classes
   "lightest-grey": $lightest-grey,
+  "green": $green,
 );
 
 $spacers: map-merge(
